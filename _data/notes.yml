@@ -12,7 +12,7 @@ notes:
 
       Note: Despite the backward compatibility, it is still possible for runtime behavior to be affected by SDK and OS version, hardware etc.
 
-      More information on configuring developer tools is [available in the SDK documentation](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/cross_development/Configuring/configuring.html).
+      More information about configuring developer tools is [available in the SDK documentation](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/cross_development/Configuring/configuring.html).
 
       **Frameworks vs Shared Libraries**
 
