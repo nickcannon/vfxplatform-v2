@@ -40,12 +40,20 @@ description: "VFX Reference Platform - Historical platform versions from CY2014 
   indicates that:
 </p>
 
-<ul class="list-disc list-inside mb-8 text-gray-600 dark:text-gray-300 space-y-1">
+<ul class="list-disc list-inside mb-6 text-gray-600 dark:text-gray-300 space-y-1">
   <li>for systems (or software) providing the library at runtime, versions should be considered <em>minimum version required.</em></li>
   <li>otherwise, for software building software against the library, versions should be considered <em>highest version allowed</em></li>
 </ul>
 
-{% include platform-table.html years=history_years show_history_link=false %}
+<p class="mb-8 text-gray-600 dark:text-gray-300">
+  <a href="/compare.html" class="text-blue-600 dark:text-blue-400 hover:underline">Compare years side-by-side &rarr;</a>
+</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+  {% for year in history_years %}
+    {% include year-card.html year=year %}
+  {% endfor %}
+</div>
 
 <h2 class="text-2xl font-semibold mb-6 mt-12" id="previous-status-updates">Previous Status Updates</h2>
 

@@ -53,6 +53,39 @@
     @apply bg-red-100 dark:bg-red-900/30;
   }
 
+  /* Year cards for history page */
+  .year-card {
+    @apply border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden;
+  }
+
+  .year-card-header {
+    @apply bg-gray-100 dark:bg-gray-800 px-4 py-3 flex justify-between items-center;
+  }
+
+  .year-card-content {
+    @apply p-4 space-y-4;
+  }
+
+  .year-card-section {
+    @apply rounded-lg p-3;
+  }
+
+  .year-card-table {
+    @apply w-full text-sm;
+  }
+
+  .year-card-table td {
+    @apply py-1 px-2;
+  }
+
+  .year-card-table td:first-child {
+    @apply text-left;
+  }
+
+  .year-card-table td:last-child {
+    @apply text-right whitespace-nowrap;
+  }
+
   /* Note cards */
   .note-card {
     @apply border border-gray-200 dark:border-gray-700 rounded-lg p-4 mb-4;
