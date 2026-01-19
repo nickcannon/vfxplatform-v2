@@ -6,8 +6,19 @@
 
   if (!year1Select || !year2Select || !resultsContainer) return;
 
+  // Check if platformData is available
+  if (typeof platformData === 'undefined' || typeof componentMeta === 'undefined') {
+    resultsContainer.innerHTML = '<div class="p-4 text-red-600">Error: Platform data not loaded.</div>';
+    return;
+  }
+
   // Get sorted years (newest first)
   const years = Object.keys(platformData).sort().reverse();
+
+  if (years.length === 0) {
+    resultsContainer.innerHTML = '<div class="p-4 text-red-600">Error: No platform years found.</div>';
+    return;
+  }
 
   // Populate select dropdowns
   function populateSelects() {
