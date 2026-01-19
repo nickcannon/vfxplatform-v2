@@ -1,0 +1,118 @@
+---
+layout: default
+title: Platform History
+description: "VFX Reference Platform - Historical platform versions from CY2014 to present"
+---
+
+{% assign current_year = site.current_year %}
+{% assign supported_count = site.supported_years_count %}
+
+{% comment %} Get all years and filter out the supported ones {% endcomment %}
+{% assign all_years = "" | split: "" %}
+{% for platform in site.data.platforms %}
+  {% assign year_num = platform[0] | remove: "CY" | plus: 0 %}
+  {% assign all_years = all_years | push: year_num %}
+{% endfor %}
+{% assign all_years = all_years | sort | reverse %}
+
+{% comment %} History years = all years except the most recent 4 {% endcomment %}
+{% assign history_years = "" | split: "" %}
+{% for year in all_years %}
+  {% assign diff = current_year | minus: year %}
+  {% if diff >= supported_count %}
+    {% assign history_years = history_years | push: year %}
+  {% endif %}
+{% endfor %}
+
+<h2 class="text-2xl font-semibold mb-4">Reference Platform History</h2>
+
+<p class="text-lg text-gray-600 dark:text-gray-300 mb-4">
+  Below is a list of all the VFX Reference Platform targets going back to the initial release for CY2014.
+</p>
+
+<p class="mb-4 text-gray-600 dark:text-gray-300">
+  Each annual reference platform is designated by the calendar year in which major product releases should be targeting that particular reference.
+</p>
+
+<p class="mb-4 text-gray-600 dark:text-gray-300">
+  All versions should be considered exact required versions, except for those components where
+  <span class="whitespace-nowrap text-gray-500">&#8595;&#8593;</span>
+  indicates that:
+</p>
+
+<ul class="list-disc list-inside mb-8 text-gray-600 dark:text-gray-300 space-y-1">
+  <li>for systems (or software) providing the library at runtime, versions should be considered <em>minimum version required.</em></li>
+  <li>otherwise, for software building software against the library, versions should be considered <em>highest version allowed</em></li>
+</ul>
+
+{% include platform-table.html years=history_years show_history_link=false %}
+
+<h2 class="text-2xl font-semibold mb-6 mt-12" id="previous-status-updates">Previous Status Updates</h2>
+
+<div class="space-y-4 text-gray-600 dark:text-gray-300">
+  <p><strong>7th May 2025</strong> - CY2026 Draft published, with a number of significant changes to gcc, glibc, and Qt. We are currently soliciting feedback on this Draft so please either send to <a href="mailto:feedback@vfxplatform.com" class="text-blue-600 dark:text-blue-400 hover:underline">feedback@vfxplatform.com</a> or share on <a href="https://groups.google.com/g/vfx-platform-discuss" class="text-blue-600 dark:text-blue-400 hover:underline">vfx-platform-discuss</a>.</p>
+
+  <p><strong>3rd November 2024</strong> - CY2025 updated to confirm the planned new releases for ACES, OpenColorIO, OpenEXR, and OpenVDB.</p>
+
+  <p><strong>2nd September 2024</strong> - CY2025 is now Final and will be effective from January 1st. Confirmation of versions for ACES, OpenColorIO, and OpenEXR will follow by early October, and OpenVDB by early November pending the timely release of new versions. As always, if any major issues are discovered with CY2025 then they will be shared with the community to decide whether a late change is required.</p>
+
+  <p><strong>2nd September 2024</strong> - New report published! The <a href="https://bit.ly/VFXlinux24" class="text-blue-600 dark:text-blue-400 hover:underline">2024 VFX/Animation Studio Workstation Linux Report</a> is now available giving an insight into the current state of Linux on studio workstations.</p>
+
+  <p><strong>18th August 2024</strong> - CY2025 Draft updated. OpenEXR release window extended until Oct 1st. Minimum version of Visual Studio bumped to 17.6. Python reluctantly reverted to 3.11 due to a compatibility issue with Qt 6.5. Upgrades to Qt 6.8 and a newer Python are planned for CY2026.</p>
+
+  <p><strong>16th June 2024</strong> - CY2024 and CY2025 Draft updated to Windows SDK 10.0.20348 due to compatibility requirements of Qt 6.5 WebEngine.</p>
+
+  <p><strong>14th May 2024</strong> - CY2025 Draft published, with the main change being a move to Intel's oneAPI for TBB and MKL.</p>
+
+  <p><strong>1st November 2023</strong> - New versions of OpenSubdiv and OpenVDB were released as scheduled and CY2024 has been updated accordingly.</p>
+
+  <p><strong>5th September 2023</strong> - <a href="https://youtu.be/lA0dZMhqlSo" class="text-blue-600 dark:text-blue-400 hover:underline">The recording of the 2023 User Group meeting is now available</a>.</p>
+
+  <p><strong>4th September 2023</strong> - CY2024 is now Final. Confirmation of versions for OpenSubdiv and OpenVDB will follow by early November pending the timely release of new versions.</p>
+
+  <p><strong>16th May 2023</strong> - CY2024 Draft published, with the main change being a move to Qt 6. Due to ongoing work required to migrate critical dependencies, the planned move to Intel's oneAPI has been deferred until CY2025.</p>
+
+  <p><strong>31st October 2022</strong> - Late changes to CY2023 have been applied to OpenSubdiv, OpenVDB, and OpenColorIO which all completed major new releases before the extended deadline of October 31st.</p>
+
+  <p><strong>7th September 2022</strong> - CY2023 is now Final. Please note the change to glibc may require a major Linux distro upgrade, and the <a href="/linux/" class="text-blue-600 dark:text-blue-400 hover:underline">recent recommendation</a> for studios to migrate to RHEL, Rocky Linux, or AlmaLinux.</p>
+
+  <p><strong>9th August 2022</strong> - <a href="https://bit.ly/VFXlinux22" class="text-blue-600 dark:text-blue-400 hover:underline">VFX Linux Distribution Recommendation Report</a> (pdf) published and new Linux page added.</p>
+
+  <p><strong>8th May 2022</strong> - CY2023 Draft published.</p>
+
+  <p><strong>1st September 2021</strong> - CY2022 is now Final. A new Support Guidance section has been added to the main page.</p>
+
+  <p><strong>16th May 2021</strong> - CY2022 Draft published.</p>
+
+  <p><strong>12th September 2020</strong> - CY2021 is now Final.</p>
+
+  <p><strong>20th August 2020</strong> - From CY2021 the VFX Reference Platform will support Windows and macOS in addition to Linux.</p>
+
+  <p><strong>16th June 2020</strong> - CY2021 Draft published.</p>
+
+  <p><strong>3rd August 2019</strong> - The CY2020 Platform is now Final with no further changes planned.</p>
+
+  <p><strong>1st May 2019</strong> - CY2020 Draft published which includes the long-awaited move to Python 3.</p>
+
+  <p><strong>12th September 2018</strong> - CY2019 Final now published with OpenVDB updated to 6.x and ACES to 1.1.</p>
+
+  <p><strong>20th May 2018</strong> - CY2019 Draft published. The move to Python 3 has been pushed to CY2020.</p>
+
+  <p><strong>26th November 2017</strong> - CY2018 has had a late change to the compiler version which is now gcc 6.3.1.</p>
+
+  <p><strong>3rd August 2017</strong> - The CY2018 Platform was ratified as Final at the annual SIGGRAPH VFX Reference Platform Birds of a Feather.</p>
+
+  <p><strong>29th April 2017</strong> - CY2018 Draft published with significant upgrades to gcc and glibc.</p>
+
+  <p><strong>1st August 2016</strong> - CY2017 Final now published.</p>
+
+  <p><strong>20th June 2016</strong> - CY2017 Draft published.</p>
+</div>
+
+<hr class="border-gray-200 dark:border-gray-700 my-8">
+
+<h2 class="text-2xl font-semibold mb-6" id="additional-notes">Additional Notes</h2>
+
+{% for note in site.data.notes.notes %}
+  {% include note-card.html note=note %}
+{% endfor %}

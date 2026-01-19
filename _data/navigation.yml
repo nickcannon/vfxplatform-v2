@@ -1,0 +1,11 @@
+main:
+  - title: Home
+    url: /
+  - title: Linux
+    url: /linux/
+  - title: FAQ
+    url: /FAQ/
+  - title: About
+    url: /about/
+  - title: Contact
+    url: /contact/
