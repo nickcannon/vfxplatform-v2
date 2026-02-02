@@ -20,9 +20,6 @@
           {{ item.title }}
         </a>
         {% endfor %}
-        <a href="/compare.html" class="px-3 py-2 text-sm text-gray-300 hover:text-white rounded-md transition-colors {% if page.url == '/compare.html' %}text-white bg-gray-800{% endif %}">
-          Compare
-        </a>
 
         {% include dark-mode-toggle.html %}
       </div>
@@ -35,9 +32,6 @@
         {{ item.title }}
       </a>
       {% endfor %}
-      <a href="/compare.html" class="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">
-        Compare
-      </a>
       <div class="px-3 py-2">
         {% include dark-mode-toggle.html %}
       </div>

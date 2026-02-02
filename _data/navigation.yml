@@ -1,6 +1,8 @@
 main:
   - title: Home
     url: /
+  - title: Compare
+    url: /compare.html
   - title: Linux
     url: /linux/
   - title: FAQ
