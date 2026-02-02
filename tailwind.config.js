@@ -8,6 +8,12 @@ module.exports = {
     './about/**/*.html',
     './contact/**/*.html',
     './linux/**/*.html',
+    './assets/js/**/*.js',
+  ],
+  safelist: [
+    'diff-added',
+    'diff-removed',
+    'diff-changed',
   ],
   darkMode: 'class',
   theme: {
